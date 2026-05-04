@@ -207,7 +207,7 @@ export default function Hero() {
             Launch Campaign &rarr;
           </button>
           <a
-            href="#how-it-works"
+            href="#how-we-do-it"
             className="rounded-full bg-white/20 backdrop-blur-sm border border-white/30 px-5 md:px-7 py-3 font-sans text-sm font-medium text-white/90 transition-all duration-200 hover:bg-white/30 whitespace-nowrap"
           >
             Learn More

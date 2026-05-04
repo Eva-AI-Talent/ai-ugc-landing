@@ -21,10 +21,34 @@ const dmMono = DM_Mono({
   weight: ["400", "500"],
 });
 
+const siteUrl = "https://diffusr.com";
+
 export const metadata: Metadata = {
-  title: "Diffusr — AI UGC Programs for Brands",
+  title: "Diffusr — AI UGC Campaigns for Brands",
   description:
-    "Diffusr builds and runs AI UGC content programs for brands — from brief to distribution, fully managed.",
+    "Launching viral AI UGC Campaigns for your brand at scale.",
+  metadataBase: new URL(siteUrl),
+  openGraph: {
+    title: "Diffusr — AI UGC Campaigns for Brands",
+    description: "Launching viral AI UGC Campaigns for your brand at scale.",
+    url: siteUrl,
+    siteName: "Diffusr",
+    images: [
+      {
+        url: "/og-banner.png",
+        width: 1200,
+        height: 630,
+        alt: "Diffusr — Your brand. Everywhere it should be.",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Diffusr — AI UGC Campaigns for Brands",
+    description: "Launching viral AI UGC Campaigns for your brand at scale.",
+    images: ["/og-banner.png"],
+  },
 };
 
 export default function RootLayout({

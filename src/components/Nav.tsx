@@ -5,8 +5,7 @@ import { useState, useEffect } from "react";
 const CALENDAR_URL = "https://calendar.app.google/jLbRVksH8HAbnSz18";
 
 const navLinks = [
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "For Brands", href: "#brands" },
+  { label: "How It Works", href: "#how-we-do-it" },
   { label: "Pricing", href: "#pricing" },
   { label: "FAQ", href: "#faq" },
 ];

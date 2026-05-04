@@ -375,6 +375,7 @@ export default function FiveSteps() {
 
   return (
     <motion.section
+      id="how-we-do-it"
       className="bg-white px-6 py-24"
       initial={{ opacity: 0, y: 32 }}
       whileInView={{ opacity: 1, y: 0 }}
