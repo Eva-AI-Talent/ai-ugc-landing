@@ -21,7 +21,7 @@ const dmMono = DM_Mono({
   weight: ["400", "500"],
 });
 
-const siteUrl = "https://diffusr.com";
+const siteUrl = "https://diffusr.ai";
 
 export const metadata: Metadata = {
   title: "Diffusr — AI UGC Campaigns for Brands",
@@ -35,10 +35,11 @@ export const metadata: Metadata = {
     siteName: "Diffusr",
     images: [
       {
-        url: "/og-banner.png",
+        url: `${siteUrl}/og-banner.png`,
         width: 1200,
         height: 630,
         alt: "Diffusr — Your brand. Everywhere it should be.",
+        type: "image/png",
       },
     ],
     type: "website",
@@ -47,7 +48,11 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Diffusr — AI UGC Campaigns for Brands",
     description: "Launching viral AI UGC Campaigns for your brand at scale.",
-    images: ["/og-banner.png"],
+    images: [`${siteUrl}/og-banner.png`],
+  },
+  other: {
+    "og:image:width": "1200",
+    "og:image:height": "630",
   },
 };
 
