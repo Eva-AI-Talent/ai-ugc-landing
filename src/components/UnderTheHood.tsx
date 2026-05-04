@@ -14,10 +14,10 @@ const formats = [
     avgViews: "4.2M",
     avgER: "6.8%",
     avgShares: "12K",
-    thumbnails: [
-      "from-pink-300 to-rose-200",
-      "from-amber-300 to-orange-200",
-      "from-cyan-300 to-blue-200",
+    images: [
+      "/images/pov-1.jpeg",
+      "/images/pov-2.jpeg",
+      "/images/pov-3.jpeg",
     ],
   },
   {
@@ -26,31 +26,41 @@ const formats = [
     avgViews: "8.1M",
     avgER: "7.2%",
     avgShares: "24K",
-    thumbnails: [
-      "from-violet-300 to-purple-200",
-      "from-emerald-300 to-teal-200",
-      "from-rose-300 to-pink-200",
+    images: [
+      "/images/ba-1.jpeg",
+      "/images/ba-2.jpeg",
+      "/images/ba-3.jpeg",
     ],
   },
   {
-    title: "Ragebait + product save",
-    description: "Intentional mess, product swoops in as the satisfying fix.",
+    title: "We can stay here or go up",
+    description: "Glow-up trend that contrasts where they started with where they are now — raw nostalgia into aspirational transformation.",
     avgViews: "6.4M",
     avgER: "8.1%",
     avgShares: "18K",
-    thumbnails: [
-      "from-orange-300 to-yellow-200",
-      "from-sky-300 to-indigo-200",
-      "from-lime-300 to-green-200",
+    images: [
+      "/images/glow-1.jpeg",
+      "/images/glow-2.jpeg",
+      "/images/glow-3.jpeg",
     ],
   },
 ];
+
+type Format = {
+  title: string;
+  description: string;
+  avgViews: string;
+  avgER: string;
+  avgShares: string;
+  images?: string[];
+  thumbnails?: string[];
+};
 
 function FormatCard({
   format,
   index,
 }: {
-  format: (typeof formats)[0];
+  format: Format;
   index: number;
 }) {
   const rotations = [-3, 0, 3];
@@ -66,12 +76,22 @@ function FormatCard({
     >
       {/* Thumbnails row */}
       <div className="flex gap-1.5 mb-4">
-        {format.thumbnails.map((gradient, i) => (
-          <div
-            key={i}
-            className={`aspect-[9/16] flex-1 rounded-lg bg-gradient-to-br ${gradient}`}
-          />
-        ))}
+        {"images" in format && format.images
+          ? format.images.map((src, i) => (
+              <div key={i} className="aspect-[9/16] flex-1 rounded-lg overflow-hidden">
+                <img
+                  src={src}
+                  alt={`${format.title} ${i + 1}`}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            ))
+          : format.thumbnails?.map((gradient, i) => (
+              <div
+                key={i}
+                className={`aspect-[9/16] flex-1 rounded-lg bg-gradient-to-br ${gradient}`}
+              />
+            ))}
       </div>
 
       {/* Title */}

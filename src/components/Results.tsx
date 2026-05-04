@@ -84,7 +84,7 @@ export default function Results() {
               Zero shoots.
             </h3>
             <p className="font-sans text-sm text-gray-500 mt-3 leading-relaxed">
-              Birby delivered a full AI UGC content program for Shopee
+              Diffusr delivered a full AI UGC content program for Shopee
               Philippines — 500 videos produced and distributed across social
               channels with no talent, no production costs, and no delays.
             </p>

@@ -16,7 +16,7 @@ const pillars = [
   {
     number: "03",
     title: "Built for the long game",
-    body: "The brands winning on social in 2026 are the ones building systematic content operations \u2014 not scrambling for the next shoot. Birby is that system.",
+    body: "The brands winning on social in 2026 are the ones building systematic content operations \u2014 not scrambling for the next shoot. Diffusr is that system.",
   },
 ];
 
@@ -67,7 +67,7 @@ export default function Mission() {
           viewport={{ once: true, margin: "-100px" }}
           className="mx-auto mt-8 max-w-[560px] font-sans text-lg leading-relaxed text-gray-500"
         >
-          Birby builds AI content programs that are designed to actually perform
+          Diffusr builds AI content programs that are designed to actually perform
           &mdash; trend-matched, platform-native, and built around what your
           audience genuinely responds to. Volume without quality is just noise.
           We do both.

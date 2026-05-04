@@ -6,14 +6,14 @@ import * as Accordion from "@radix-ui/react-accordion";
 
 const faqs = [
   {
-    question: "What exactly does Birby build for my brand?",
+    question: "What exactly does Diffusr build for my brand?",
     answer:
-      "Birby builds and runs a fully managed AI UGC content program. We handle creative strategy, video production using AI, distribution across multiple personas on TikTok, Instagram, and YouTube Shorts, and weekly performance reporting.",
+      "Diffusr builds and runs a fully managed AI UGC content program. We handle creative strategy, video production using AI, distribution across multiple personas on TikTok, Instagram, and YouTube Shorts, and weekly performance reporting.",
   },
   {
     question: "How is this different from using an AI video tool ourselves?",
     answer:
-      "AI video tools give you the ability to make content. Birby gives you the results. We don\u2019t just generate videos \u2014 we research what\u2019s trending, build the personas, create the content, post it from managed accounts, and optimize it every week. You\u2019re not operating a tool. You\u2019re getting a full content engine that runs without your team lifting a finger.",
+      "AI video tools give you the ability to make content. Diffusr gives you the results. We don\u2019t just generate videos \u2014 we research what\u2019s trending, build the personas, create the content, post it from managed accounts, and optimize it every week. You\u2019re not operating a tool. You\u2019re getting a full content engine that runs without your team lifting a finger.",
   },
   {
     question: "How quickly can we get started?",

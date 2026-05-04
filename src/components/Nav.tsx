@@ -2,8 +2,18 @@
 
 import { useState, useEffect } from "react";
 
+const CALENDAR_URL = "https://calendar.app.google/jLbRVksH8HAbnSz18";
+
+const navLinks = [
+  { label: "How It Works", href: "#how-it-works" },
+  { label: "For Brands", href: "#brands" },
+  { label: "Pricing", href: "#pricing" },
+  { label: "FAQ", href: "#faq" },
+];
+
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,23 +33,20 @@ export default function Nav() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center px-6">
+        {/* Logo */}
         <a
           href="/"
           className={`font-serif text-xl transition-colors duration-300 ${
             scrolled ? "text-gray-900" : "text-white"
           }`}
         >
-          birby
+          diffusr
           <span className="text-[#7c3aed]">.</span>
         </a>
 
+        {/* Desktop nav links */}
         <div className="hidden items-center gap-8 md:flex mx-auto">
-          {[
-            { label: "How It Works", href: "#how-it-works" },
-            { label: "For Brands", href: "#brands" },
-            { label: "Results", href: "#results" },
-            { label: "FAQ", href: "#faq" },
-          ].map((link) => (
+          {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
@@ -54,17 +61,65 @@ export default function Nav() {
           ))}
         </div>
 
-        <a
-          href="#get-early-access"
-          className={`rounded-full px-5 py-2 font-sans text-sm font-medium transition-all duration-300 ${
+        {/* Desktop CTA */}
+        <button
+          onClick={() => window.open(CALENDAR_URL, "_blank")}
+          className={`hidden md:block rounded-full px-5 py-2 font-sans text-sm font-medium transition-all duration-300 cursor-pointer ${
             scrolled
               ? "bg-gray-900 text-white hover:bg-gray-800"
               : "bg-white text-[#08080f] hover:opacity-90"
           }`}
         >
-          Get Early Access
-        </a>
+          Launch Campaign
+        </button>
+
+        {/* Mobile hamburger */}
+        <button
+          onClick={() => setMobileOpen(!mobileOpen)}
+          className="ml-auto md:hidden flex flex-col justify-center gap-1.5 p-2 cursor-pointer"
+          aria-label="Toggle menu"
+        >
+          <span
+            className={`block h-0.5 w-5 transition-all duration-200 ${
+              scrolled ? "bg-gray-900" : "bg-white"
+            } ${mobileOpen ? "rotate-45 translate-y-2" : ""}`}
+          />
+          <span
+            className={`block h-0.5 w-5 transition-all duration-200 ${
+              scrolled ? "bg-gray-900" : "bg-white"
+            } ${mobileOpen ? "opacity-0" : ""}`}
+          />
+          <span
+            className={`block h-0.5 w-5 transition-all duration-200 ${
+              scrolled ? "bg-gray-900" : "bg-white"
+            } ${mobileOpen ? "-rotate-45 -translate-y-2" : ""}`}
+          />
+        </button>
       </div>
+
+      {/* Mobile menu */}
+      {mobileOpen && (
+        <div
+          className={`md:hidden border-t px-6 py-4 ${
+            scrolled
+              ? "border-gray-200 bg-white/95 backdrop-blur-md"
+              : "border-white/10 bg-[#08080f]/95 backdrop-blur-md"
+          }`}
+        >
+          {navLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              onClick={() => setMobileOpen(false)}
+              className={`block py-3 font-sans text-sm ${
+                scrolled ? "text-gray-700" : "text-white/80"
+              }`}
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+      )}
     </nav>
   );
 }

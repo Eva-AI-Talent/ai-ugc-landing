@@ -22,9 +22,9 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Birby — AI UGC Programs for Brands",
+  title: "Diffusr — AI UGC Programs for Brands",
   description:
-    "Birby builds and runs AI UGC content programs for brands — from brief to distribution, fully managed.",
+    "Diffusr builds and runs AI UGC content programs for brands — from brief to distribution, fully managed.",
 };
 
 export default function RootLayout({

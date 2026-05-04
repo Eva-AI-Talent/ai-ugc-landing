@@ -1,16 +1,11 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 
-export default function WaitlistCTA() {
-  const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+const CALENDAR_URL = "https://calendar.app.google/jLbRVksH8HAbnSz18";
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
+export default function WaitlistCTA() {
+  const openCalendar = () => window.open(CALENDAR_URL, "_blank");
 
   return (
     <section className="bg-white py-24 px-6">
@@ -58,44 +53,24 @@ export default function WaitlistCTA() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.25 }}
           >
-            Join brands already using Birby to generate 173m+ impressions at
+            Join brands already using Diffusr to generate 173m+ impressions at
             scale
           </motion.p>
 
-          {/* Email form */}
+          {/* CTA Button */}
           <motion.div
-            className="max-w-[480px] mx-auto mt-8"
+            className="mt-8"
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.35 }}
           >
-            {!submitted ? (
-              <form
-                onSubmit={handleSubmit}
-                className="flex items-center border border-gray-300 rounded-full overflow-hidden bg-white"
-              >
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="your@company.com"
-                  required
-                  className="flex-1 bg-transparent px-5 py-3 text-gray-900 placeholder:text-gray-400 font-sans text-sm outline-none"
-                />
-                <button
-                  type="submit"
-                  className="bg-[#7c3aed] text-white font-sans text-sm font-medium px-6 py-3 rounded-full m-1 whitespace-nowrap hover:bg-[#6d28d9] transition"
-                >
-                  Start a Program
-                </button>
-              </form>
-            ) : (
-              <p className="text-[#7c3aed] font-sans text-base font-medium">
-                You&apos;re on the list. We&apos;ll be in touch within 24
-                hours.
-              </p>
-            )}
+            <button
+              onClick={openCalendar}
+              className="rounded-full bg-gray-900 text-white font-sans text-sm font-medium px-8 py-3.5 hover:bg-gray-800 transition cursor-pointer"
+            >
+              Launch Campaign &rarr;
+            </button>
           </motion.div>
         </div>
       </motion.div>

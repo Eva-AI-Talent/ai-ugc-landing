@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
 const fadeUp = {
@@ -16,6 +17,8 @@ function TikTokCard({
   shares,
   sound,
   thumbnailGradient,
+  video,
+  avatar,
   partial,
 }: {
   handle: string;
@@ -24,19 +27,48 @@ function TikTokCard({
   comments: string;
   shares: string;
   sound: string;
-  thumbnailGradient: string;
+  thumbnailGradient?: string;
+  video?: string;
+  avatar?: string;
   partial?: boolean;
 }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const el = videoRef.current;
+    if (!el) return;
+    const handleTime = () => {
+      if (el.currentTime >= 10) el.currentTime = 0;
+    };
+    el.addEventListener("timeupdate", handleTime);
+    return () => el.removeEventListener("timeupdate", handleTime);
+  }, []);
+
   return (
     <div
-      className={`relative aspect-[9/16] w-full rounded-lg overflow-hidden bg-gradient-to-br ${thumbnailGradient} ${
-        partial ? "opacity-50" : ""
-      }`}
+      className={`relative aspect-[9/16] w-full rounded-lg overflow-hidden ${
+        !video ? `bg-gradient-to-br ${thumbnailGradient}` : "bg-black"
+      } ${partial ? "opacity-50" : ""}`}
     >
+      {video && (
+        <video
+          ref={videoRef}
+          src={video}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      )}
       {/* Right side action buttons */}
       <div className="absolute right-2 bottom-20 flex flex-col items-center gap-3">
         <div className="flex flex-col items-center">
-          <div className="h-5 w-5 rounded-full bg-white/20" />
+          {avatar ? (
+            <img src={avatar} alt="" className="h-5 w-5 rounded-full object-cover" />
+          ) : (
+            <div className="h-5 w-5 rounded-full bg-white/20" />
+          )}
         </div>
         <div className="flex flex-col items-center gap-0.5">
           <svg viewBox="0 0 24 24" className="h-4 w-4 text-white/80" fill="currentColor">
@@ -61,7 +93,11 @@ function TikTokCard({
       {/* Bottom overlay — handle, caption, sound */}
       <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3 pt-10">
         <div className="flex items-center gap-1.5">
-          <div className="h-4 w-4 rounded-full bg-white/30 flex-shrink-0" />
+          {avatar ? (
+            <img src={avatar} alt="" className="h-4 w-4 rounded-full object-cover flex-shrink-0" />
+          ) : (
+            <div className="h-4 w-4 rounded-full bg-white/30 flex-shrink-0" />
+          )}
           <span className="font-sans text-[8px] font-semibold text-white">
             {handle}
           </span>
@@ -122,12 +158,14 @@ function CreatorCard({
   handle,
   videosPosted,
   impressions,
+  avatar,
   className = "",
 }: {
   name: string;
   handle: string;
   videosPosted: number;
   impressions: string;
+  avatar?: string;
   className?: string;
 }) {
   return (
@@ -139,7 +177,11 @@ function CreatorCard({
       className={`z-20 rounded-xl border border-white/20 bg-white/80 backdrop-blur-xl px-4 py-3 shadow-lg ${className}`}
     >
       <div className="flex items-center gap-2">
-        <div className="h-6 w-6 rounded-full bg-gray-200 flex-shrink-0" />
+        {avatar ? (
+          <img src={avatar} alt="" className="h-6 w-6 rounded-full object-cover flex-shrink-0" />
+        ) : (
+          <div className="h-6 w-6 rounded-full bg-gray-200 flex-shrink-0" />
+        )}
         <div>
           <span className="block font-sans text-[11px] font-medium text-gray-900 leading-none">
             {name}
@@ -208,6 +250,7 @@ export default function LiveFeed() {
                 handle="@mia.wellness.la"
                 videosPosted={34}
                 impressions="284K"
+                avatar="/videos/avatar-mia.jpeg"
                 className="absolute -top-14 left-1/2 -translate-x-1/2 w-[160px] md:w-[200px]"
               />
               <PhoneMockup scrollDuration={18} className="">
@@ -218,7 +261,8 @@ export default function LiveFeed() {
                   comments="89"
                   shares="341"
                   sound="original sound - mia"
-                  thumbnailGradient="from-amber-300 via-orange-200 to-yellow-100"
+                  video="/videos/livefeed-mia-1.mp4"
+                  avatar="/videos/avatar-mia.jpeg"
                 />
                 <TikTokCard
                   handle="@mia.wellness.la"
@@ -227,7 +271,8 @@ export default function LiveFeed() {
                   comments="52"
                   shares="210"
                   sound="trending audio"
-                  thumbnailGradient="from-rose-300 via-pink-200 to-fuchsia-100"
+                  video="/videos/livefeed-mia-2.mp4"
+                  avatar="/videos/avatar-mia.jpeg"
                 />
               </PhoneMockup>
             </div>
@@ -239,6 +284,7 @@ export default function LiveFeed() {
                 handle="@davefromhouston"
                 videosPosted={61}
                 impressions="892K"
+                avatar="/videos/avatar-dave.png"
                 className="absolute -top-14 left-1/2 -translate-x-1/2 w-[160px] md:w-[200px]"
               />
               <PhoneMockup scrollDuration={22} className="">
@@ -249,7 +295,8 @@ export default function LiveFeed() {
                   comments="203"
                   shares="891"
                   sound="original sound - dave"
-                  thumbnailGradient="from-emerald-400 via-teal-300 to-cyan-200"
+                  video="/videos/livefeed-dave-1.mp4"
+                  avatar="/videos/avatar-dave.png"
                 />
                 <TikTokCard
                   handle="@davefromhouston"
@@ -258,7 +305,8 @@ export default function LiveFeed() {
                   comments="147"
                   shares="520"
                   sound="trending audio"
-                  thumbnailGradient="from-sky-400 via-blue-300 to-indigo-200"
+                  video="/videos/livefeed-dave-2.mp4"
+                  avatar="/videos/avatar-dave.png"
                 />
               </PhoneMockup>
             </div>
@@ -266,30 +314,33 @@ export default function LiveFeed() {
             {/* ── Phone 3 — Right ── */}
             <div className="relative rotate-3 -ml-4 md:-ml-6 mt-3 z-0">
               <CreatorCard
-                name="wellness.finds"
-                handle="@wellness.finds.sg"
+                name="Macy"
+                handle="@macy.lee"
                 videosPosted={28}
                 impressions="156K"
+                avatar="/videos/avatar-macy.jpeg"
                 className="absolute -top-14 left-1/2 -translate-x-1/2 w-[160px] md:w-[200px]"
               />
               <PhoneMockup scrollDuration={15} className="">
                 <TikTokCard
-                  handle="@wellness.finds.sg"
+                  handle="@macy.lee"
                   caption="POV: you finally tried it"
                   hearts="2.1K"
                   comments="44"
                   shares="187"
-                  sound="original sound - wellness.finds"
-                  thumbnailGradient="from-violet-200 via-purple-100 to-indigo-100"
+                  sound="original sound - macy.lee"
+                  video="/videos/livefeed-macy-1.mp4"
+                  avatar="/videos/avatar-macy.jpeg"
                 />
                 <TikTokCard
-                  handle="@lifestyleedits.nyc"
+                  handle="@macy.lee"
                   caption="this was not on my 2025 bingo card"
                   hearts="980"
                   comments="31"
                   shares="128"
                   sound="trending audio"
-                  thumbnailGradient="from-slate-300 via-gray-200 to-zinc-100"
+                  video="/videos/livefeed-macy-2.mp4"
+                  avatar="/videos/avatar-macy.jpeg"
                 />
               </PhoneMockup>
             </div>

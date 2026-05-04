@@ -13,7 +13,7 @@ function PersonaGrid() {
     {
       name: "Mia, 21",
       location: "Los Angeles",
-      gradient: "from-pink-400 to-rose-300",
+      avatar: "/videos/avatar-mia.jpeg",
       interests: ["Pilates", "Matcha", "Thrifting", "K-beauty"],
       prompt:
         "Wellness girlie with a curated feed — posts matcha, pilates, and outfit grids daily",
@@ -22,19 +22,19 @@ function PersonaGrid() {
     {
       name: "Dave, 44",
       location: "Houston, TX",
-      gradient: "from-blue-400 to-slate-400",
+      avatar: "/videos/avatar-dave.png",
       interests: ["Trucks", "BBQ", "Youth sports", "Blue collar"],
       prompt:
         "Dad who loves his F-150, weekend tailgates, and fixing things around the house",
       active: true,
     },
     {
-      name: "Zara, 24",
-      location: "Atlanta",
-      gradient: "from-purple-400 to-fuchsia-400",
-      interests: ["Sneakers", "GRWM", "R&B", "Nail art"],
+      name: "Macy, 24",
+      location: "New York",
+      avatar: "/videos/avatar-macy.jpeg",
+      interests: ["Beauty", "Lifestyle", "Fashion", "Skincare"],
       prompt:
-        "Trendy, expressive, always first to try new products — posts fits and lifestyle daily",
+        "Lifestyle and beauty vlogger — always first to try new products, posts daily routines and reviews",
       active: false,
     },
   ];
@@ -52,8 +52,10 @@ function PersonaGrid() {
             }`}
           >
             {/* Large thumbnail avatar */}
-            <div
-              className={`h-24 w-24 flex-shrink-0 rounded-xl bg-gradient-to-br ${p.gradient}`}
+            <img
+              src={p.avatar}
+              alt={p.name}
+              className="h-24 w-24 flex-shrink-0 rounded-xl object-cover"
             />
 
             {/* Info */}
@@ -217,9 +219,9 @@ function ContentPipeline() {
 
 function DistributionVisual() {
   const personas = [
-    { name: "Mia", handle: "@mia.wellness.la", platforms: "TikTok + IG" },
-    { name: "Dave", handle: "@davefromhouston", platforms: "TikTok + YT" },
-    { name: "Zara", handle: "@zaraatl", platforms: "TikTok + IG" },
+    { name: "Mia", handle: "@mia.wellness.la", platforms: "TikTok + IG", avatar: "/videos/avatar-mia.jpeg" },
+    { name: "Dave", handle: "@davefromhouston", platforms: "TikTok + YT", avatar: "/videos/avatar-dave.png" },
+    { name: "Macy", handle: "@macy.lee", platforms: "TikTok + IG", avatar: "/videos/avatar-macy.jpeg" },
   ];
 
   return (
@@ -244,7 +246,7 @@ function DistributionVisual() {
             className="flex items-center gap-3 rounded-lg border border-gray-200 bg-white p-3"
           >
             <div className="relative">
-              <div className="h-7 w-7 rounded-full bg-gradient-to-br from-gray-200 to-gray-100" />
+              <img src={p.avatar} alt={p.name} className="h-7 w-7 rounded-full object-cover" />
               <div className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full border-2 border-gray-50 bg-green-400" />
             </div>
             <div className="min-w-0 flex-1">

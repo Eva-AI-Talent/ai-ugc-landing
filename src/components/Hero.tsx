@@ -1,16 +1,16 @@
 "use client";
 
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+const CALENDAR_URL = "https://calendar.app.google/jLbRVksH8HAbnSz18";
+
 const phones = [
-  { label: "Fashion", gradient: "from-pink-400 to-purple-400" },
-  { label: "Food", gradient: "from-orange-400 to-amber-300" },
-  { label: "Beauty", gradient: "from-rose-400 to-pink-300" },
-  { label: "Travel", gradient: "from-cyan-400 to-blue-400" },
-  { label: "Fitness", gradient: "from-green-400 to-emerald-400" },
-  { label: "Tech", gradient: "from-violet-400 to-indigo-400" },
-  { label: "Lifestyle", gradient: "from-amber-400 to-orange-300" },
+  { label: "Beauty", video: "/videos/hero-1.mp4" },
+  { label: "Lifestyle", video: "/videos/hero-2.mp4" },
+  { label: "Auto", video: "/videos/hero-3.mp4" },
+  { label: "Wellness", video: "/videos/hero-4.mp4" },
+  { label: "Fashion", video: "/videos/hero-5.mp4" },
 ];
 
 // Generate deterministic star positions
@@ -31,11 +31,11 @@ function generateStars(count: number) {
 }
 
 function PhoneFrame({
-  gradient,
+  video,
   label,
   position,
 }: {
-  gradient: string;
+  video: string;
   label: string;
   position: number;
 }) {
@@ -45,6 +45,19 @@ function PhoneFrame({
   const translateY = absPos * absPos * 8;
   const opacity = 1 - absPos * 0.15;
   const zIndex = 10 - absPos;
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const el = videoRef.current;
+    if (!el) return;
+    const handleTime = () => {
+      if (el.currentTime >= 10) {
+        el.currentTime = 0;
+      }
+    };
+    el.addEventListener("timeupdate", handleTime);
+    return () => el.removeEventListener("timeupdate", handleTime);
+  }, []);
 
   return (
     <motion.div
@@ -70,21 +83,15 @@ function PhoneFrame({
               <div className="h-[8px] w-[56px] rounded-full bg-[#0a0a1a]" />
             </div>
             <div className="aspect-[9/19.5] w-full">
-              <div
-                className={`h-full w-full bg-gradient-to-br ${gradient} flex flex-col items-center justify-center p-3`}
-              >
-                <div className="mt-auto mb-5 w-full px-2">
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="h-5 w-5 rounded-full bg-white/30" />
-                    <div className="h-2 w-12 rounded-full bg-white/30" />
-                  </div>
-                  <div className="h-1.5 w-3/4 rounded-full bg-white/20 mb-1" />
-                  <div className="h-1.5 w-1/2 rounded-full bg-white/20" />
-                  <p className="font-mono text-[7px] text-white/40 mt-1.5">
-                    {label}
-                  </p>
-                </div>
-              </div>
+              <video
+                ref={videoRef}
+                src={video}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="h-full w-full object-cover"
+              />
             </div>
           </div>
         </div>
@@ -96,6 +103,7 @@ function PhoneFrame({
 export default function Hero() {
   const [activeIndex, setActiveIndex] = useState(0);
   const stars = useMemo(() => generateStars(40), []);
+  const openCalendar = useCallback(() => window.open(CALENDAR_URL, "_blank"), []);
 
   const next = useCallback(() => {
     setActiveIndex((prev) => (prev + 1) % phones.length);
@@ -181,7 +189,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
         >
-          Birby helps you launch viral AI UGC content at scale and
+          Diffusr helps you launch viral AI UGC content at scale and
           distributed across every channel your audience lives on.
         </motion.p>
 
@@ -192,12 +200,12 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
         >
-          <a
-            href="#get-early-access"
-            className="rounded-full bg-white px-5 md:px-7 py-3 font-sans text-sm font-medium text-[#08080f] transition-opacity duration-200 hover:opacity-90 whitespace-nowrap"
+          <button
+            onClick={openCalendar}
+            className="rounded-full bg-white px-5 md:px-7 py-3 font-sans text-sm font-medium text-[#08080f] transition-opacity duration-200 hover:opacity-90 whitespace-nowrap cursor-pointer"
           >
-            Start a Program &rarr;
-          </a>
+            Launch Campaign &rarr;
+          </button>
           <a
             href="#how-it-works"
             className="rounded-full bg-white/20 backdrop-blur-sm border border-white/30 px-5 md:px-7 py-3 font-sans text-sm font-medium text-white/90 transition-all duration-200 hover:bg-white/30 whitespace-nowrap"
@@ -226,7 +234,7 @@ export default function Hero() {
                 return (
                   <PhoneFrame
                     key={phone.label}
-                    gradient={phone.gradient}
+                    video={phone.video}
                     label={phone.label}
                     position={pos}
                   />

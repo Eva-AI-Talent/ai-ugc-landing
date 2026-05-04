@@ -29,7 +29,7 @@ export default function Footer() {
           {/* Col 1 — Brand */}
           <div>
             <p className="font-sans font-bold text-xl text-gray-900">
-              birby<span className="text-[#7c3aed]">.</span>
+              diffusr<span className="text-[#7c3aed]">.</span>
             </p>
             <p className="font-sans text-[13px] text-gray-400 mt-3 leading-relaxed">
               AI UGC programs for brands.
@@ -90,7 +90,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-gray-200 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center gap-2">
           <p className="font-mono text-xs text-gray-400">
-            &copy; 2025 Birby. All rights reserved.
+            &copy; 2025 Diffusr. All rights reserved.
           </p>
           <p className="font-mono text-xs text-gray-400">
             Built for brands that give a damn.

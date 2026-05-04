@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 
+const CALENDAR_URL = "https://calendar.app.google/jLbRVksH8HAbnSz18";
+
 const growingBrandsFeatures = [
   "Fully managed program",
   "AI UGC video production",
@@ -33,6 +35,8 @@ const bonusTiers = [
 ];
 
 export default function Pricing() {
+  const openCalendar = () => window.open(CALENDAR_URL, "_blank");
+
   return (
     <section id="pricing" className="bg-[#f5f5f7] py-24 px-6">
       <div className="max-w-[1100px] mx-auto">
@@ -74,7 +78,7 @@ export default function Pricing() {
           viewport={{ once: true }}
           className="font-sans text-base text-gray-500 text-center max-w-[480px] mx-auto mt-6 leading-relaxed"
         >
-          Birby programs are priced per video produced and distributed — so your
+          Diffusr programs are priced per video produced and distributed — so your
           costs scale directly with your output. No monthly minimums until
           you&apos;re ready to commit.
         </motion.p>
@@ -107,12 +111,12 @@ export default function Pricing() {
                 </li>
               ))}
             </ul>
-            <a
-              href="#"
-              className="mt-8 w-full text-center bg-gray-900 text-white rounded-full py-3 font-sans text-sm font-medium block hover:bg-gray-800 transition"
+            <button
+              onClick={openCalendar}
+              className="mt-8 w-full text-center bg-gray-900 text-white rounded-full py-3 font-sans text-sm font-medium hover:bg-gray-800 transition cursor-pointer"
             >
-              Get Started &rarr;
-            </a>
+              Launch Campaign &rarr;
+            </button>
           </motion.div>
 
           {/* Card 2 — Enterprise */}
@@ -141,12 +145,12 @@ export default function Pricing() {
                 </li>
               ))}
             </ul>
-            <a
-              href="#"
-              className="mt-8 w-full text-center bg-[#7c3aed] text-white rounded-full py-3 font-sans text-sm font-medium block hover:bg-[#6d28d9] transition"
+            <button
+              onClick={openCalendar}
+              className="mt-8 w-full text-center bg-[#7c3aed] text-white rounded-full py-3 font-sans text-sm font-medium hover:bg-[#6d28d9] transition cursor-pointer"
             >
-              Talk to Us &rarr;
-            </a>
+              Launch Campaign &rarr;
+            </button>
           </motion.div>
           {/* ── Card 3 — Performance Bonuses ── */}
           <motion.div
