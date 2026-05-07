@@ -78,9 +78,10 @@ export default function Pricing() {
           viewport={{ once: true }}
           className="font-sans text-base text-gray-500 text-center max-w-[480px] mx-auto mt-6 leading-relaxed"
         >
-          Every Diffusr program is scoped to your goals, output, and markets.
-          Book a 20-min call and we&apos;ll build a custom plan with performance
-          incentives baked in.
+          Every Diffusr program is priced{" "}
+          <span className="text-gray-900 font-medium">per video produced</span>{" "}
+          — no monthly minimums, no platform fees. Book a 20-min call and we&apos;ll
+          scope a per-video rate based on your volume, markets, and goals.
         </motion.p>
 
         {/* Tier Cards */}
@@ -96,9 +97,9 @@ export default function Pricing() {
             <p className="font-mono text-[11px] text-gray-400 tracking-wider">
               GROWING BRANDS
             </p>
-            <p className="font-serif text-5xl text-gray-900 mt-3">Custom</p>
+            <p className="font-serif text-5xl text-gray-900 mt-3">Per video</p>
             <p className="font-sans text-sm text-gray-600 mt-2">
-              Pricing scoped to your campaign goals
+              Flat rate scoped to your campaign goals
             </p>
             <div className="border-t border-gray-200 my-6" />
             <ul className="space-y-3 flex-1">
@@ -130,9 +131,9 @@ export default function Pricing() {
             <p className="font-mono text-[11px] text-gray-700 tracking-wider">
               ENTERPRISE
             </p>
-            <p className="font-serif text-5xl text-gray-900 mt-3">Let&apos;s talk</p>
+            <p className="font-serif text-5xl text-gray-900 mt-3">Per video</p>
             <p className="font-sans text-sm text-gray-600 mt-2">
-              Built for high-volume, multi-market brands
+              Volume rate for high-output, multi-market brands
             </p>
             <div className="border-t border-[#7c3aed]/15 my-6" />
             <ul className="space-y-3 flex-1">
