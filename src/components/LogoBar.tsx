@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const logos = [
-  { src: "/logos/jinro.svg", alt: "Jinro", height: 24 },
   { src: "/logos/shopee.svg", alt: "Shopee", height: 28 },
   { src: "/logos/mave.svg", alt: "Mave", height: 26 },
 ];
