@@ -17,7 +17,7 @@ const growingBrandsFeatures = [
 const enterpriseFeatures = [
   "Everything in Growing Brands",
   "Fully managed program",
-  "Cheaper per-video pricing",
+  "Volume per-video rate",
   "Multi-geo & market distribution",
   "Spread across more accounts",
   "Dedicated account manager",
