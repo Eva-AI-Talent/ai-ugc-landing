@@ -11,7 +11,7 @@ const growingBrandsFeatures = [
   "Trend-matched content",
   "Weekly performance report",
   "Performance incentive model",
-  "1–6 accounts",
+  "Multi-account distribution",
 ];
 
 const enterpriseFeatures = [
@@ -25,13 +25,13 @@ const enterpriseFeatures = [
 ];
 
 const bonusTiers = [
-  { views: "10K views", tier: "tier 1 bonus" },
-  { views: "50K views", tier: "tier 2 bonus" },
-  { views: "100K views", tier: "tier 3 bonus" },
-  { views: "250K views", tier: "tier 4 bonus" },
-  { views: "500K views", tier: "tier 5 bonus" },
-  { views: "750K views", tier: "tier 6 bonus" },
-  { views: "1M+ views", tier: "tier 7 bonus" },
+  { views: "Milestone 1", tier: "tier 1 bonus" },
+  { views: "Milestone 2", tier: "tier 2 bonus" },
+  { views: "Milestone 3", tier: "tier 3 bonus" },
+  { views: "Milestone 4", tier: "tier 4 bonus" },
+  { views: "Milestone 5", tier: "tier 5 bonus" },
+  { views: "Milestone 6", tier: "tier 6 bonus" },
+  { views: "Milestone 7", tier: "tier 7 bonus" },
 ];
 
 export default function Pricing() {
@@ -78,9 +78,9 @@ export default function Pricing() {
           viewport={{ once: true }}
           className="font-sans text-base text-gray-500 text-center max-w-[480px] mx-auto mt-6 leading-relaxed"
         >
-          Diffusr programs are priced per video produced and distributed — so your
-          costs scale directly with your output. No monthly minimums until
-          you&apos;re ready to commit.
+          Every Diffusr program is scoped to your goals, output, and markets.
+          Book a 20-min call and we&apos;ll build a custom plan with performance
+          incentives baked in.
         </motion.p>
 
         {/* Tier Cards */}
@@ -96,9 +96,9 @@ export default function Pricing() {
             <p className="font-mono text-[11px] text-gray-400 tracking-wider">
               GROWING BRANDS
             </p>
-            <p className="font-serif text-5xl text-gray-900 mt-3">$20</p>
+            <p className="font-serif text-5xl text-gray-900 mt-3">Custom</p>
             <p className="font-sans text-sm text-gray-600 mt-2">
-              per video · 80–150 videos/month
+              Pricing scoped to your campaign goals
             </p>
             <div className="border-t border-gray-200 my-6" />
             <ul className="space-y-3 flex-1">
@@ -130,9 +130,9 @@ export default function Pricing() {
             <p className="font-mono text-[11px] text-gray-700 tracking-wider">
               ENTERPRISE
             </p>
-            <p className="font-serif text-5xl text-gray-900 mt-3">Custom</p>
+            <p className="font-serif text-5xl text-gray-900 mt-3">Let&apos;s talk</p>
             <p className="font-sans text-sm text-gray-600 mt-2">
-              500+ videos/month · dedicated team
+              Built for high-volume, multi-market brands
             </p>
             <div className="border-t border-[#7c3aed]/15 my-6" />
             <ul className="space-y-3 flex-1">
@@ -192,8 +192,9 @@ export default function Pricing() {
               })}
             </div>
             <p className="mt-6 font-sans text-[11px] text-gray-400 leading-relaxed">
-              * Exact bonus amounts disclosed on discovery call. Bonuses are
-              cumulative — hitting 1M+ views unlocks all previous tiers.
+              * Bonus structure & thresholds shared on your discovery call.
+              Bonuses are cumulative — hitting the top tier unlocks all
+              previous ones.
             </p>
           </motion.div>
         </div>
