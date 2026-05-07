@@ -131,9 +131,9 @@ export default function Pricing() {
             <p className="font-mono text-[11px] text-gray-700 tracking-wider">
               ENTERPRISE
             </p>
-            <p className="font-serif text-5xl text-gray-900 mt-3">Per video</p>
+            <p className="font-serif text-5xl text-gray-900 mt-3">Let&apos;s talk</p>
             <p className="font-sans text-sm text-gray-600 mt-2">
-              Volume rate for high-output, multi-market brands
+              Volume per-video rate for high-output, multi-market brands
             </p>
             <div className="border-t border-[#7c3aed]/15 my-6" />
             <ul className="space-y-3 flex-1">
