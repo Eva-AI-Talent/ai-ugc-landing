@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 const productLinks = [
   { label: "How It Works", href: "#how-we-do-it" },
   { label: "Results", href: "#results" },
@@ -20,9 +22,13 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
           {/* Col 1 — Brand */}
           <div>
-            <p className="font-serif text-xl text-gray-900">
-              diffusr<span className="text-[#7c3aed]">.</span>
-            </p>
+            <Image
+              src="/logos/diffusr-logo.svg"
+              alt="diffusr"
+              width={140}
+              height={30}
+              className="h-7 w-auto brightness-0"
+            />
             <p className="font-sans text-[13px] text-gray-400 mt-3 leading-relaxed">
               AI UGC programs for brands.
               <br />

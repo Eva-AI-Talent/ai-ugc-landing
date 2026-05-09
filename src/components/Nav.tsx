@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 const CALENDAR_URL = "https://calendar.app.google/jLbRVksH8HAbnSz18";
 
@@ -33,14 +34,17 @@ export default function Nav() {
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center px-6">
         {/* Logo */}
-        <a
-          href="/"
-          className={`font-serif text-xl transition-colors duration-300 ${
-            scrolled ? "text-gray-900" : "text-white"
-          }`}
-        >
-          diffusr
-          <span className="text-[#7c3aed]">.</span>
+        <a href="/" className="shrink-0">
+          <Image
+            src="/logos/diffusr-logo.svg"
+            alt="diffusr"
+            width={140}
+            height={30}
+            className={`h-7 w-auto transition-all duration-300 ${
+              scrolled ? "brightness-0" : "brightness-0 invert"
+            }`}
+            priority
+          />
         </a>
 
         {/* Desktop nav links */}
