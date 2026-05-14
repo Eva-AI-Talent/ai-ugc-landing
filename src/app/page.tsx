@@ -1,6 +1,5 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import LogoBar from "@/components/LogoBar";
 import Problem from "@/components/Problem";
 import LiveFeed from "@/components/LiveFeed";
 import FiveSteps from "@/components/FiveSteps";
@@ -19,7 +18,6 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        <LogoBar />
         <Problem />
         <LiveFeed />
         <FiveSteps />
