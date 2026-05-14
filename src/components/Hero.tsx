@@ -124,7 +124,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative flex min-h-screen flex-col items-center overflow-hidden"
+      className="relative flex min-h-screen flex-col items-center overflow-hidden border-b border-gray-200"
       style={{
         background:
           "radial-gradient(ellipse 130% 80% at 42% -2%, #08080f 0%, #0f0520 15%, #1e0a4a 28%, #3b1694 40%, #6d28d9 52%, #a78bfa 65%, #ddd6fe 78%, #f3f0ff 88%, #ffffff 100%)",
