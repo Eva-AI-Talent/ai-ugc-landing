@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const CALENDAR_URL = "https://calendar.app.google/jLbRVksH8HAbnSz18";
+const CALENDAR_URL = "https://calendar.app.google/ac8ZrVyRbGCw87yh7";
 
 const phones = [
   { label: "Beauty", video: "/videos/hero-1.mp4" },

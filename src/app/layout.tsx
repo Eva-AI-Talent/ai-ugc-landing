@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, DM_Sans, DM_Mono } from "next/font/google";
+import { Instrument_Serif, DM_Sans, DM_Mono, Barlow_Condensed } from "next/font/google";
 import "./globals.css";
 
 const instrumentSerif = Instrument_Serif({
@@ -19,6 +19,13 @@ const dmMono = DM_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
   weight: ["400", "500"],
+});
+
+const barlowCondensed = Barlow_Condensed({
+  variable: "--font-display",
+  subsets: ["latin"],
+  weight: ["700", "800", "900"],
+  style: ["normal"],
 });
 
 const siteUrl = "https://diffusr.ai";
@@ -64,7 +71,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${instrumentSerif.variable} ${dmSans.variable} ${dmMono.variable} antialiased`}
+      className={`${instrumentSerif.variable} ${dmSans.variable} ${dmMono.variable} ${barlowCondensed.variable} antialiased`}
     >
       <body className="bg-white text-gray-900 font-sans">{children}</body>
     </html>

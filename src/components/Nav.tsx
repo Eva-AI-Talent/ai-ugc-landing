@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
-const CALENDAR_URL = "https://calendar.app.google/jLbRVksH8HAbnSz18";
+const CALENDAR_URL = "https://calendar.app.google/ac8ZrVyRbGCw87yh7";
 
 const navLinks = [
   { label: "How It Works", href: "#how-we-do-it" },

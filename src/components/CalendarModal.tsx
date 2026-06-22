@@ -9,7 +9,7 @@ import {
 } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-const CALENDAR_URL = "https://calendar.app.google/jLbRVksH8HAbnSz18";
+const CALENDAR_URL = "https://calendar.app.google/ac8ZrVyRbGCw87yh7";
 
 type CalendarModalContextType = {
   openCalendar: () => void;

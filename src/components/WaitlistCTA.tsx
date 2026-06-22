@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-const CALENDAR_URL = "https://calendar.app.google/jLbRVksH8HAbnSz18";
+const CALENDAR_URL = "https://calendar.app.google/ac8ZrVyRbGCw87yh7";
 
 export default function WaitlistCTA() {
   const openCalendar = () => window.open(CALENDAR_URL, "_blank");
