@@ -175,11 +175,12 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
         >
-          Your brand.
+          Launch viral AI UGC
           <br />
-          <em className="font-serif italic font-normal text-white/70">Everywhere</em>
+          at scale —{" "}
+          <em className="font-serif italic font-normal text-white/70">18×</em>
           <br />
-          it should be.
+          the impressions.
         </motion.h1>
 
         {/* Subheadline */}
@@ -189,8 +190,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
         >
-          Diffusr helps you launch viral AI UGC content at scale and
-          distributed across every channel your audience lives on.
+          Your brand. Everywhere it should be.
         </motion.p>
 
         {/* CTA row */}
@@ -204,7 +204,7 @@ export default function Hero() {
             onClick={openCalendar}
             className="rounded-full bg-white px-5 md:px-7 py-3 font-sans text-sm font-medium text-[#08080f] transition-opacity duration-200 hover:opacity-90 whitespace-nowrap cursor-pointer"
           >
-            Launch Campaign &rarr;
+            Book a Discovery Call &rarr;
           </button>
           <a
             href="#how-we-do-it"
